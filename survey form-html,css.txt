@@ -1,0 +1,149 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Survey Form</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="menu">
+    <h1 id="title">Student Interest Survey</h1>
+    <p id="description">We'd love to know more about your interests to help us create better opportunities for you.</p>
+
+    <form id="survey-form">
+      <!-- Name -->
+      <label id="name-label" for="name">Name:</label>
+      <input 
+        id="name" 
+        type="text" 
+        placeholder="Enter your full name" 
+        required 
+      />
+
+      <!-- Email -->
+      <label id="email-label" for="email">Email:</label>
+      <input 
+        id="email" 
+        type="email" 
+        placeholder="Enter your email" 
+        required 
+      />
+
+      <!-- Age -->
+      <label id="number-label" for="number">Age (13–99):</label>
+      <input 
+        id="number" 
+        type="number" 
+        min="13" 
+        max="99" 
+        placeholder="Enter your age" 
+        required 
+      />
+
+      <!-- Dropdown -->
+      <label for="dropdown">Which area interests you the most?</label>
+      <select id="dropdown" required>
+        <option value="">--Select an option--</option>
+        <option value="robotics">Robotics</option>
+        <option value="ai">Artificial Intelligence</option>
+        <option value="design">Design</option>
+      </select>
+
+      <!-- Radio buttons -->
+      <p>How would you rate your experience in tech?</p>
+      <label>
+        <input type="radio" name="experience" value="beginner" required /> Beginner
+      </label>
+      <label>
+        <input type="radio" name="experience" value="intermediate" /> Intermediate
+      </label>
+      <label>
+        <input type="radio" name="experience" value="advanced" /> Advanced
+      </label>
+
+      <!-- Checkboxes -->
+      <p>Select the skills you have (you can choose more than one):</p>
+      <label><input type="checkbox" value="html" /> HTML</label>
+      <label><input type="checkbox" value="css" /> CSS</label>
+      <label><input type="checkbox" value="python" /> Python</label>
+      <label><input type="checkbox" value="arduino" /> Arduino</label>
+
+      <!-- Textarea -->
+      <label for="comments">Additional comments:</label>
+      <textarea id="comments" rows="5" placeholder="Let us know anything else..."></textarea>
+
+      <!-- Submit Button -->
+      <button id="submit" type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
+
+
+** end of undefined **
+
+** start of undefined **
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+#menu {
+  width: 80%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#title {
+  text-align: center;
+  color: #333;
+}
+
+#description {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label, p {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+input, select, textarea, button {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 2rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+
+** end of undefined **
+
