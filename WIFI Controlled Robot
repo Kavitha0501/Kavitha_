@@ -1,0 +1,74 @@
+#define REMOTEXY_MODE__WIFI_POINT
+
+#include <WiFi.h>
+#include <RemoteXY.h>
+
+#define REMOTEXY_WIFI_SSID "ESP32_Robot"
+#define REMOTEXY_WIFI_PASSWORD "12345678"
+#define REMOTEXY_SERVER_PORT 6377
+
+#pragma pack(push, 1)
+uint8_t RemoteXY_CONF[] = {
+  255,1,0,0,0,44,0,8,13,0,
+  1,0,10,10,30,15,2,31,70,87,68,0,
+  1,0,10,30,30,15,2,31,66,87,68,0,
+  1,0,50,10,30,15,2,31,76,0,
+  1,0,50,30,30,15,2,31,82,0
+};
+
+struct {
+  uint8_t button_fwd;
+  uint8_t button_bwd;
+  uint8_t button_left;
+  uint8_t button_right;
+} RemoteXY;
+#pragma pack(pop)
+
+#define IN1 26
+#define IN2 27
+#define IN3 14
+#define IN4 12
+
+void setup() {
+  RemoteXY_Init();
+
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+}
+
+void loop() {
+  RemoteXY_Handler();
+
+  if (RemoteXY.button_fwd) {
+    digitalWrite(IN1, HIGH);
+    digitalWrite(IN2, LOW);
+    digitalWrite(IN3, HIGH);
+    digitalWrite(IN4, LOW);
+  }
+  else if (RemoteXY.button_bwd) {
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, HIGH);
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, HIGH);
+  }
+  else if (RemoteXY.button_left) {
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, HIGH);
+    digitalWrite(IN3, HIGH);
+    digitalWrite(IN4, LOW);
+  }
+  else if (RemoteXY.button_right) {
+    digitalWrite(IN1, HIGH);
+    digitalWrite(IN2, LOW);
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, HIGH);
+  }
+  else {
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, LOW);
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, LOW);
+  }
+}
