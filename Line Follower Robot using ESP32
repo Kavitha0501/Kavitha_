@@ -1,0 +1,64 @@
+// Traffic Light 1
+const int red1 = 25;
+const int yellow1 = 26;
+const int green1 = 27;
+
+// Traffic Light 2
+const int red2 = 14;
+const int yellow2 = 18;
+const int green2 = 19;
+
+void setup() {
+  // Set pins as outputs
+  pinMode(red1, OUTPUT);
+  pinMode(yellow1, OUTPUT);
+  pinMode(green1, OUTPUT);
+
+  pinMode(red2, OUTPUT);
+  pinMode(yellow2, OUTPUT);
+  pinMode(green2, OUTPUT);
+
+  // Initial state:
+  // Traffic Light 1 = Green
+  // Traffic Light 2 = Red
+  digitalWrite(green1, HIGH);
+  digitalWrite(yellow1, LOW);
+  digitalWrite(red1, LOW);
+
+  digitalWrite(green2, LOW);
+  digitalWrite(yellow2, LOW);
+  digitalWrite(red2, HIGH);
+}
+
+void loop() {
+  changeLights();
+}
+
+void changeLights() {
+
+  // Light 1: Yellow, Light 2: Red
+  digitalWrite(green1, LOW);
+  digitalWrite(yellow1, HIGH);
+  delay(3000);
+
+  // Light 1: Red, Light 2: Green
+  digitalWrite(yellow1, LOW);
+  digitalWrite(red1, HIGH);
+
+  digitalWrite(red2, LOW);
+  digitalWrite(green2, HIGH);
+  delay(7000);
+
+  // Light 2: Yellow
+  digitalWrite(green2, LOW);
+  digitalWrite(yellow2, HIGH);
+  delay(3000);
+
+  // Light 2: Red, Light 1: Green
+  digitalWrite(yellow2, LOW);
+  digitalWrite(red2, HIGH);
+
+  digitalWrite(red1, LOW);
+  digitalWrite(green1, HIGH);
+  delay(7000);
+}
